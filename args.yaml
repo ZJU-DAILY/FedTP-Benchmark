@@ -1,0 +1,206 @@
+methods:
+  STAGCN-EC:
+    β: 0.9
+    Chebyshev K: 3
+    GRU hidden: 32
+    temporal-conv kernel: 10
+  FCGCN:
+    GCN layers: 2
+    dropout: 0.5
+    residual adjacency α: 0.9
+    final activation: false
+  FedGTP:
+    node embedding dim: 2
+    poly_k: 4
+    hidden layers: 2
+    hidden dim: 64
+  FedAGAT:
+    K: 6
+    λ: 0.5
+    Gumbel τ: 0.5
+    attention heads: 6
+    GTCN kernel: 3
+    embedding dim: 32
+  UFCL:
+    queue size: 256
+    KD weight: 1.0
+    replay noise std: 0.05
+    GWN residual/skip/end channels:
+    - 29
+    - 58
+    - 58
+    GWN blocks/layers:
+    - 2
+    - 2
+    GWN dropout: 0.1
+    diffusion order: 2
+  FedTPS:
+    rnn_units: 64
+    num_layers: 1
+    Cheb K: 3
+    pattern_num/pattern_dim:
+    - 20
+    - 64
+    λ/λ₁:
+    - 0.01
+    - 0.01
+    cl_decay_steps: 2000
+    top-k: 2
+  FGNNEH:
+    γ: 0.1
+    P: 0.05
+    PCA components: 8
+    δ: 0.5
+    hidden dim: 32
+  Fed4TP:
+    time_window_num: 5
+    ρ: 0.1
+    gradient history length: 10
+    DyHSL dropout: 0.1
+    DyHSL backbone/head layers:
+    - 2
+    - 2
+    dynamic hyperedges: 32
+    winsize: 3
+    scales:
+    - 1
+    - 3
+    - 6
+    - 12
+  FedMetro:
+    embed_dim: 6
+    hyper_model_dim: 64
+    rnn_units: 64
+    num_layers: 1
+    cheb_order: 2
+    mask β/γ/ζ:
+    - 0.66
+    - -0.1
+    - 1.1
+    λ_reg: 0.001
+    sparsification threshold: 0.8
+  FC-FedGCN:
+    FCA dim: 100
+    GCN layers: 2
+    Top-k: 8
+  FedGRU:
+    GRU layers: 2
+    hidden dim: 50
+  FedSTN:
+    MF-Dense rank: 16
+    GAT heads: 2
+    GCN layers: 2
+    ext_dim: 21
+  Fed-mSSA:
+    page_length: 48
+    rank: 0
+    SV scale: 2.0
+    GRU layers/dropout:
+    - 2
+    - 0
+    impute rounds/local steps:
+    - 20
+    - 10
+    consensus/ortho/diag weight:
+    - 1
+    - 1
+    - 0.2
+  STFAM:
+    TSVD dim: 10
+    clusters: 3
+    embedding dim: 64
+    global pretrain epochs: 200
+    recon α/β:
+    - 0.1
+    - 0.1
+  CNFGNN:
+    server GNN layers: 2
+    server hidden dim: 256
+    updated node/edge/global dim:
+    - 128
+    - 128
+    - 128
+  REFOL:
+    KL threshold: 0.0003
+    GRU layers: 1
+    hidden dim: 128
+    dropout: 0
+    GCN residual α: 0.1
+    restore_best: true
+  FedOSTC:
+    hidden dim: 32
+    GAT heads: 1
+    GAT concat: false
+    patience: 50
+    min_delta: 0.0001
+    DP sigma: 0.5
+  SFL:
+    RNN layers: 1
+    rnn_hidden: 64
+    subgraph_size: 30
+    serveralpha: 1.0
+    serverbeta: 0.3
+    adjalpha: 3.0
+    adjbeta: 0.05
+    GCN layers: 3
+  FedGODE:
+    TCN channels:
+    - 64
+    - 32
+    - 64
+    regularization weight: 0.8
+    semantic σ/threshold:
+    - 0.1
+    - 0.6
+    spatial σ/threshold:
+    - 10
+    - 0.5
+  FedSTG:
+    TP-Bank K: 10
+    pattern dim d: 2
+    GRU layers: 1
+    α/β:
+    - 0.01
+    - 0.5
+    σ/κ:
+    - 0
+    - 0
+  TDLR & SED-LR:
+    LSTM layers: 2
+    dropout: 0.2
+    stream rounds: 200
+    recent buffer: 8
+    occupancy threshold: 0.8
+    anomaly sigma: 2
+    warm-up/cooldown:
+    - 10
+    - 5
+    patience/min_delta:
+    - 50
+    - 0
+  FedTSE:
+    spatial kernel ks: 3
+    temporal kernel kt: 3
+    STGCN block channels:
+    - - input_dim
+      - 16
+      - 64
+    - - 64
+      - 16
+      - 64
+    ReducedD: 9
+    Q local updates: 1
+    input steps: 9
+    output steps: 1
+  FUELS:
+    dr: 128
+    c/q:
+    - 6
+    - 6
+    ρ: 5
+    τ: 0.02
+    noise_std: 0.01
+    mask_ratio: 0.1
+    shift_prob: 0.5
+    shift_pad_mode: edge
+    JSD percentile: 50
